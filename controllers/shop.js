@@ -12,12 +12,22 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-  // console.log(prodId);
+  
+  // Use the callback function to handle the product data
   Product.findById(prodId, product => {
-    console.log(product);
-  })
-  res.redirect('/');
-}
+    // Check if the product exists
+    if (!product) {
+      return res.redirect('/');
+    }
+    
+    // Render the product detail page inside the callback
+    res.render('shop/product-detail', {
+      product: product,
+      pageTitle: product.title,
+      path: '/products'
+    });
+  });
+};
 
 exports.getIndex = (req, res, next) => {
   Product.fetchAll(products => {
