@@ -12,7 +12,11 @@ router.get('/products', shopController.getProducts);
 
 router.get('/products/:productId', shopController.getProduct); //connecting controller with logic
 
+// shows cart
 router.get('/cart', shopController.getCart);
+
+// posting to cart
+router.get('/cart', shopController.postCart);
 
 router.get('/orders', shopController.getOrders);
 

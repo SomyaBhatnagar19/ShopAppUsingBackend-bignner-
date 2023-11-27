@@ -1,5 +1,5 @@
 const Product = require('../models/product');
-
+const Cart = require('../models/cart');
 exports.getProducts = (req, res, next) => {
   Product.fetchAll(products => {
     res.render('shop/product-list', {
@@ -45,6 +45,21 @@ exports.getCart = (req, res, next) => {
     pageTitle: 'Your Cart'
   });
 };
+
+exports.postCart = (req, res, next) => {
+  console.log('Reached postCart middleware');
+  
+  const prodId = req.body.productId;
+  Product.findById(prodId, (product) => {
+    Cart.addProduct(prodId, product.price)
+  })
+  console.log('Product ID:', prodId);
+
+  // Assuming you have a valid productId, you can redirect to the cart
+  res.redirect('/cart');
+};
+
+
 
 exports.getOrders = (req, res, next) => {
   res.render('shop/orders', {
