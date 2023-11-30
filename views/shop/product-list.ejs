@@ -27,8 +27,17 @@
                                     </p>
                                 </div>
                                 <div class="card__actions">
+<<<<<<< HEAD
                                     <a href="/products/<%= product.id %>" class="btn">Details</a>
                                     <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+=======
+                                    <!-- adding details button that takes us to the details of product so using anchor tag for it -->
+                                    <a href="/products/<%= product.id %>" class="btn">Details</a> 
+                                    <!-- in href i added the path for the product details -->
+                                    <form action="/add-to-cart" method="POST">
+                                        <button class="btn">Add to Cart</button>
+                                    </form>
+>>>>>>> a890d5f89b6bf31ae13d868041f495921f15abae
                                 </div>
                             </article>
                             <% } %>

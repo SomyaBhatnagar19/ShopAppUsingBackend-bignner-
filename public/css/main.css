@@ -197,6 +197,7 @@ form {
   color: white;
 }
 
+<<<<<<< HEAD
 .btn.danger {
   color: red;
   border-color: red;
@@ -208,6 +209,8 @@ form {
   color: white;
 }
 
+=======
+>>>>>>> a890d5f89b6bf31ae13d868041f495921f15abae
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
